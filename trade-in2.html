@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	 
+    <title>Document</title>
+	  
+	<link href="css/bootstrap-4.4.1.css" rel="stylesheet" type="text/css">
+	<link href="trade-in2.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div class="nav_bar">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light"><img src="images/Logo_White__3_-removebg-preview.png" alt="" width="100" height="100" class="img-fluid"/> 
+		<a class="navbar-brand" href="index.html">BOOK SMUG</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+	  <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+	    <ul class="navbar-nav mr-auto">
+	      
+	        <div class="dropdown-menu" aria-labelledby="navbarDropdown1"> <a class="dropdown-item" href="#">Action</a> <a class="dropdown-item" href="#">Another action</a>
+	          <div class="dropdown-divider"></div>
+	          <a class="dropdown-item" href="#">Something else here</a> </div>
+          </li>
+	      
+        </ul>
+	    <form class="form-inline my-2 my-lg-0">
+			<ul class="navbar-nav mr-auto">
+				
+			
+	      
+	        <div class="dropdown-menu" aria-labelledby="navbarDropdown1"> <a class="dropdown-item" href="#">Action</a> <a class="dropdown-item" href="#">Another action</a>
+	          <div class="dropdown-divider"></div>
+	          <a class="dropdown-item" href="#">Something else here</a> </div>
+          </li>
+	      
+        </ul>
+	      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+	      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+  </nav>
+	
+    <div class="cont container-fluid ">
+			
+	<fieldset>
+		<h6 class="text-center">TRADE-IN</h6><br><br>
+		<div>
+			&nbsp;&nbsp;&nbsp;&nbsp;<label ><b>Enter The Book That You Want To Trade With:</b></label><br>
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input  type="text" id="Obook"><br><br><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<label><b>Enter The Authore Of The Book:</b></label><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="description" id="Dbook"><br><br><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<label><b>Enter Your Contact Number:</b></label><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="number" id="number"><br><br><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<label><b>Enter The City You Are From:</b></label><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="city"><br><br><br>
+			&nbsp;&nbsp;&nbsp;&nbsp; <label><b>Enter The Book You Prefer To Exchange With:</b></label><br>
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" id="Ebook">
+			<div class="cont2">
+            <button  class="btn btn-success  " id="submit">Submit</button>
+				</div>
+		</div>
+			</fieldset>
+		</div>
+			
+        
+    </div>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyAZe_TJPh7ii-A6xXE7fh3-TEHu2pBLOvQ",
+          authDomain: "booksmug.firebaseapp.com",
+          databaseURL: "https://booksmug-default-rtdb.firebaseio.com",
+          projectId: "booksmug",
+          storageBucket: "booksmug.appspot.com",
+          messagingSenderId: "65378872304",
+          appId: "1:65378872304:web:23b6ef470129c7a8ae4b35",
+          measurementId: "G-02L89K279D"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        
+        import{getDatabase, ref, get, set, child, update, remove}
+        from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
+
+        const db= getDatabase();
+         var Obook= document.getElementById("Obook");
+         var Dbook= document.getElementById("Dbook");
+         var number= document.getElementById("number");
+         var city= document.getElementById("city");
+         var Ebook= document.getElementById("Ebook");
+         
+         var sub= document.getElementById("submit");
+
+         function InsertData(){
+            set(ref(db, "User/Trade-in/"+Obook.value),{
+                OwnBook: Obook.value,
+                DisBook: Dbook.value,
+                Number: number.value,
+                city: city.value,
+                Excbook: Ebook.value,
+               
+            })
+            .then(()=>{
+                alert("Book Added Sucessfully!!");
+                window.location.assign("listbook.html");
+            })
+            .catch((error)=>{
+                alert("not success"+error);
+            });
+
+        }
+        sub.addEventListener('click', InsertData);
+        
+
+
+
+      </script>
+
+</body>
+</html>

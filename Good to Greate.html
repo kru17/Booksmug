@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Good to Greate</title>
+<link href="css/bootstrap-4.4.1.css" rel="stylesheet" type="text/css">
+<link href="books.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="nav_bar">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light"><img src="images/Logo_White__3_-removebg-preview.png" alt="" width="100" height="100" class="img-fluid"/> 
+		<a class="navbar-brand" href="index.html">BOOK SMUG</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+	  <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+	    <ul class="navbar-nav mr-auto">
+	    
+	      
+        </ul>
+	    <form class="form-inline my-2 my-lg-0">
+			<ul class="navbar-nav mr-auto">
+				
+			
+	      
+          </li>
+	      
+        </ul>
+	      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+	      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+  </nav>
+
+  <br>
+<div class="row">
+	  <div class="offset-lg-2 col-lg-3"><img src="images/non-fiction_2.jpg" height="400" alt=""/></div>
+  <div class="col-lg-5">
+	<h2>GOOD TO GREAT BY JIM COLLINS</h2>
+	  <br>
+	  <p>
+        With over four million copies sold to date, Good to Great by Jim C. Collins is one of the best-selling management books of all time. The follow-up to his international bestseller, Built to Last, Good to Great focuses on how both mediocre and good companies can go beyond their stagnant status-quo to become great organizations.
+
+After studying for an MBA at Stanford, Collins saw first-hand how great companies are run by becoming a consultant at McKinsey & Company, and then a product manager at Hewlett-Packard. After returning to Stanford to teach and conduct research, Collins founded a management research center in Boulder, Colorado, to further his quest for understanding what makes some organizations successful–and others not.
+
+Consequently, the key takeaways from Good to Great are illuminating. The breadth of Collins’ and his research team’s analysis of the good-to-great principles is breathtakingly thorough. This Good to Great review will follow the structure of the book, systematically summarizing the key points from each of the nine chapters, step-by-step. 
+	 </p>
+	  <br>
+      <hr>
+      <p><b>₹ 180</b></p>
+	  <a href="#" class="btn btn-primary" id="submit">BUY</a> <a href="#" class="card-link"></a> 
+  </div>
+</div>
+<script type="module">
+	// Import the functions you need from the SDKs you need
+	import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
+	import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-analytics.js";
+	// TODO: Add SDKs for Firebase products that you want to use
+	// https://firebase.google.com/docs/web/setup#available-libraries
+  
+	// Your web app's Firebase configuration
+	// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+	const firebaseConfig = {
+	  apiKey: "AIzaSyAZe_TJPh7ii-A6xXE7fh3-TEHu2pBLOvQ",
+	  authDomain: "booksmug.firebaseapp.com",
+	  databaseURL: "https://booksmug-default-rtdb.firebaseio.com",
+	  projectId: "booksmug",
+	  storageBucket: "booksmug.appspot.com",
+	  messagingSenderId: "65378872304",
+	  appId: "1:65378872304:web:23b6ef470129c7a8ae4b35",
+	  measurementId: "G-02L89K279D"
+	};
+  
+	// Initialize Firebase
+	const app = initializeApp(firebaseConfig);
+	const analytics = getAnalytics(app);
+	
+	import{getDatabase, ref, get, set, child, update, remove}
+	from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
+
+	const db= getDatabase();
+	
+	var bookname="Good To Greate" 
+	var price="180"
+	 var sub= document.getElementById("submit");
+
+	 function InsertData(){
+		set(ref(db, "User/Purchase/ "+bookname),{
+			BookName:bookname,
+			price:price,
+		   
+		})
+		.then(()=>{
+			alert("Purchase sucessful!! Our team will contact you");
+			window.location.assign("index2.html");
+		})
+		.catch((error)=>{
+			alert("not success"+error);
+		});
+
+	}
+	sub.addEventListener('click', InsertData);
+	</script>
+
+</body>
+</html>

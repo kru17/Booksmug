@@ -1,0 +1,82 @@
+@charset "utf-8";
+.nav_bar .navbar.navbar-expand-lg.navbar-light.bg-light {
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 24%, rgba(0,212,255,1) 100%);
+}
+.nav_bar .navbar.navbar-expand-lg.navbar-light.bg-light .navbar-brand {
+    color: hsla(0,100%,99%,1.00);
+     font-family: 'loveloblack';
+    src: url('lovelo_black-webfont.eot');
+    src: url('lovelo_black-webfont.eot?#iefix') format('embedded-opentype'),
+         url('lovelo_black-webfont.woff2') format('woff2'),
+         url('lovelo_black-webfont.woff') format('woff'),
+         url('lovelo_black-webfont.ttf') format('truetype'),
+         url('lovelo_black-webfont.svg#loveloblack') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+.navbar-nav.mr-auto .nav-item.active .nav-link {
+	
+    color: hsla(0,12%,97%,1.00);
+    font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, sans-serif;
+	
+}
+.navbar-nav.mr-auto .nav-item .nav-link {
+    color: hsla(0,8%,95%,1.00);
+    font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, serif;
+    text-decoration: none;
+    font-weight: bold;
+    
+}
+#navbarSupportedContent1 .form-inline.my-2.my-lg-0 .btn.btn-outline-success.my-2.my-sm-0 {
+    background-color: #0AF313;
+    border-radius: 800;
+    color: #120000;
+    border-collapse: separate;
+}
+h6{
+	
+	font-size: 40px;
+	font-family:font-family: 'loveloblack';
+    src: url('lovelo_black-webfont.eot');
+    src: url('lovelo_black-webfont.eot?#iefix') format('embedded-opentype'),
+         url('lovelo_black-webfont.woff2') format('woff2'),
+         url('lovelo_black-webfont.woff') format('woff'),
+         url('lovelo_black-webfont.ttf') format('truetype'),
+         url('lovelo_black-webfont.svg#loveloblack') format('svg');
+    
+}
+
+fieldset{
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 24%, rgba(0,212,255,1) 100%);
+    width: 800px;
+    height: inherit;
+    border-radius: 50px;
+    -webkit-box-shadow: 5px 5px 20px 16px hsla(0,0%,81%,0.72);
+    box-shadow: 5px 5px 20px 16px hsla(0,0%,81%,0.72);
+    left: auto;
+}
+.cont {
+    text-align:left;
+    color: white;
+    padding: 20px;
+    padding-left: 450px;
+    padding-top: 50px;
+}
+.cont input{
+    padding-left: 00px;
+    width: 350px;
+    border-radius: 5px;
+    border: none;
+    height: 40px;
+    -webkit-box-shadow: 3px 3px 10px 5px hsla(0,0%,0%,0.28);
+    box-shadow: 3px 3px 10px 5px hsla(0,0%,0%,0.28);
+    margin-left: 325px;
+}
+
+.cont2{
+	padding: 20px;
+	 padding-left: 450px;
+}
+

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+
+
+</head>
+<body>
+    <div>
+      
+     
+      <p>name:<input id="username"></input></p>
+      <p>password <input id="password"></input></p>
+      <button type="submit" id="sub">submit</button>
+</div>
+
+
+
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyAZe_TJPh7ii-A6xXE7fh3-TEHu2pBLOvQ",
+      authDomain: "booksmug.firebaseapp.com",
+      databaseURL: "https://booksmug-default-rtdb.firebaseio.com",
+      projectId: "booksmug",
+      storageBucket: "booksmug.appspot.com",
+      messagingSenderId: "65378872304",
+      appId: "1:65378872304:web:23b6ef470129c7a8ae4b35",
+      measurementId: "G-02L89K279D"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    
+    import{getDatabase, ref, get, set, child, update, remove}
+    from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
+    const db= getDatabase();
+     var username = document.getElementById("username");
+     var password = document.getElementById("password");
+    var sub= document.getElementById("sub");
+    
+    function SelectData(){
+            const dref = ref(db);
+
+            get(child( dref, "login/"+username.value)).then((snapshort)=>{
+                if(snapshort.exists()){
+                    username.value=snapshort.val().userid;
+                    password.value=snapshort.val().pass;
+                 
+                }
+
+
+                else{
+                    alerat("no data found");
+                    
+                }
+            })
+            .catch((error)=>{
+                alert("unsucessful"+error);
+            });
+            
+        
+        }
+
+    sub.addEventListener('click', SelectData);
+    </script>
+</body>
+</html>

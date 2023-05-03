@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Hunger Games</title>
+<link href="css/bootstrap-4.4.1.css" rel="stylesheet" type="text/css">
+<link href="books.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="nav_bar">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light"><img src="images/Logo_White__3_-removebg-preview.png" alt="" width="100" height="100" class="img-fluid"/> 
+		<a class="navbar-brand" href="index2.html">BOOK SMUG</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+	  <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+	    <ul class="navbar-nav mr-auto">
+	      
+	        
+        </ul>
+	    <form class="form-inline my-2 my-lg-0">
+			<ul class="navbar-nav mr-auto">
+				
+			
+	      
+	      
+        </ul>
+	      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+	      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+  </nav>
+
+  <br>
+<div class="row">
+	  <div class="offset-lg-2 col-lg-3"><img src="images/Divergent.jpg" height="400" alt=""/></div>
+  <div class="col-lg-5">
+	<h2>Divergent</h2>
+	  <br>
+	  <p>
+        In Beatrice Prior's dystopian Chicago world, society is divided into five factions, each dedicated to the cultivation of a particular virtue—Candor (the honest), Abnegation (the selfless), Dauntless (the brave), Amity (the peaceful), and Erudite (the intelligent). On an appointed day of every year, all sixteen-year-olds must select the faction to which they will devote the rest of their lives. For Beatrice, the decision is between staying with her family and being who she really is—she can't have both. So she makes a choice that surprises everyone, including herself.
+
+        During the highly competitive initiation that follows, Beatrice renames herself Tris and struggles alongside her fellow initiates to live out the choice they have made. Together they must undergo extreme physical tests of endurance and intense psychological simulations, some with devastating consequences. As initiation transforms them all, Tris must determine who her friends really are—and where, exactly, a romance with a sometimes fascinating, sometimes exasperating boy fits into the life she's chosen. But Tris also has a secret, one she's kept hidden from everyone because she's been warned it can mean death. And as she discovers unrest and growing conflict that threaten to unravel her seemingly perfect society, she also learns that her secret might help her save those she loves . . . or it might destroy her.  </p><br>
+	  <hr>
+      <p><b>₹ 350</b></p>
+	  <a href="#" class="btn btn-primary" id="submit">BUY</a> <a href="#" class="card-link"></a> 
+  </div>
+</div>
+<script type="module">
+	// Import the functions you need from the SDKs you need
+	import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
+	import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-analytics.js";
+	// TODO: Add SDKs for Firebase products that you want to use
+	// https://firebase.google.com/docs/web/setup#available-libraries
+  
+	// Your web app's Firebase configuration
+	// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+	const firebaseConfig = {
+	  apiKey: "AIzaSyAZe_TJPh7ii-A6xXE7fh3-TEHu2pBLOvQ",
+	  authDomain: "booksmug.firebaseapp.com",
+	  databaseURL: "https://booksmug-default-rtdb.firebaseio.com",
+	  projectId: "booksmug",
+	  storageBucket: "booksmug.appspot.com",
+	  messagingSenderId: "65378872304",
+	  appId: "1:65378872304:web:23b6ef470129c7a8ae4b35",
+	  measurementId: "G-02L89K279D"
+	};
+  
+	// Initialize Firebase
+	const app = initializeApp(firebaseConfig);
+	const analytics = getAnalytics(app);
+	
+	import{getDatabase, ref, get, set, child, update, remove}
+	from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
+
+	const db= getDatabase();
+	
+	var bookname="Divergent" 
+	var price="350"
+	 var sub= document.getElementById("submit");
+
+	 function InsertData(){
+		set(ref(db, "User/Purchase/ "+bookname),{
+			BookName:bookname,
+			price:price,
+		   
+		})
+		.then(()=>{
+			alert("Purchase sucessful!! Our team will contact you");
+			window.location.assign("index2.html");
+		})
+		.catch((error)=>{
+			alert("not success"+error);
+		});
+
+	}
+	sub.addEventListener('click', InsertData);
+	</script>
+
+</body>
+</html>
